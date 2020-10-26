@@ -6,6 +6,7 @@ import java.nio.file.Paths;
 
 import org.springframework.beans.factory.annotation.Value;
 import org.springframework.core.io.FileSystemResource;
+import org.springframework.core.io.Resource;
 import org.springframework.stereotype.Service;
 
 @Service
@@ -16,7 +17,7 @@ public class FileService {
 
 	private String fileName = "test.txt";
 
-	private FileSystemResource fileSystemResource;
+	private Resource fileSystemResource;
 
 	public String filePath() {
 		setFileSystemResource();
@@ -24,7 +25,7 @@ public class FileService {
 	}
 
 	public String fileContent() throws IOException {
-		return new String(Files.readAllBytes(Paths.get(fileSystemResource.getPath())));
+		return new String(Files.readAllBytes(Paths.get(fileSystemResource.getURI())));
 	}
 
 	private void setFileSystemResource() {
