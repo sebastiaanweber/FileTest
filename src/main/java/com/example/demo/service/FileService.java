@@ -12,7 +12,7 @@ import org.springframework.stereotype.Service;
 @Service
 public class FileService {
 
-	@Value("${vektis.backups.path}")
+	@Value("${backups.path}")
 	private String pathName;
 
 	private String fileName = "test.txt";
